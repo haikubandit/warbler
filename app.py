@@ -7,6 +7,8 @@ from sqlalchemy.exc import IntegrityError
 from forms import UserAddForm, LoginForm, MessageForm
 from models import db, connect_db, User, Message
 
+import pdb
+
 CURR_USER_KEY = "curr_user"
 
 app = Flask(__name__)
@@ -113,8 +115,10 @@ def login():
 def logout():
     """Handle logout of user."""
 
-    # IMPLEMENT THIS
+    session.pop(CURR_USER_KEY)
+    flash("You have logged out.", "success")
 
+    return redirect("/login")
 
 ##############################################################################
 # General user routes:
@@ -252,7 +256,7 @@ def messages_add():
         db.session.commit()
 
         return redirect(f"/users/{g.user.id}")
-
+    
     return render_template('messages/new.html', form=form)
 
 
