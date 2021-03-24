@@ -17,20 +17,26 @@
           <ul class="user-stats nav nav-pills">
             <li class="stat">
               <p class="small">Messages</p>
-              <h4>
+              <h4 class="text-center">
                 <a href="/users/{{ g.user.id }}">{{ g.user.messages | length }}</a>
               </h4>
             </li>
             <li class="stat">
               <p class="small">Following</p>
-              <h4>
+              <h4 class="text-center">
                 <a href="/users/{{ g.user.id }}/following">{{ g.user.following | length }}</a>
               </h4>
             </li>
             <li class="stat">
               <p class="small">Followers</p>
-              <h4>
+              <h4 class="text-center">
                 <a href="/users/{{ g.user.id }}/followers">{{ g.user.followers | length }}</a>
+              </h4>
+            </li>
+            <li class="stat">
+              <p class="small">Likes</p>
+              <h4 class="text-center">
+                <a href="/users/{{ g.user.id }}/likes">{{ g.user.likes | length }}</a>
               </h4>
             </li>
           </ul>
